@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://4e2oxg7wxcr4"]
+
+[ext_resource type="Script" path="res://scenes/Player.gd" id="1_uohhe"]
+[ext_resource type="Texture2D" uid="uid://c6ab5usovtwvg" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_jump.png" id="2_dfsdc"]
+[ext_resource type="Texture2D" uid="uid://ohvwpuw2ifow" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_slide.png" id="3_maio1"]
+[ext_resource type="Texture2D" uid="uid://bvrk5ia7qa012" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_walk1.png" id="3_vyf6b"]
+[ext_resource type="Texture2D" uid="uid://bpc6e5ojqehlc" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_stand.png" id="4_w1k01"]
+[ext_resource type="Texture2D" uid="uid://jnt42t5uwigs" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_walk2.png" id="4_wouv4"]
+[ext_resource type="Texture2D" uid="uid://j2wrs40clo4m" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_idle.png" id="5_a2vec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7orag"]
+size = Vector2(86, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06nf2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_maio1")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w1k01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a2vec")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vyf6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wouv4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_uohhe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 8.5)
+shape = SubResource("RectangleShape2D_7orag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_dfsdc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_06nf2")
+animation = &"walk"
+frame_progress = 0.0749361
