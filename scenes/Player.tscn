@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://j2wrs40clo4m" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_idle.png" id="5_a2vec"]
 [ext_resource type="Texture2D" uid="uid://psnj1a3pxgrt" path="res://assets/player_tilesheet.png" id="6_mkiyf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7orag"]
-size = Vector2(86, 93)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dt6ke"]
+radius = 24.0
+height = 93.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li36e"]
 atlas = ExtResource("6_mkiyf")
@@ -81,7 +82,7 @@ script = ExtResource("1_uohhe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 8.5)
-shape = SubResource("RectangleShape2D_7orag")
+shape = SubResource("CapsuleShape2D_dt6ke")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -91,3 +92,5 @@ texture = ExtResource("2_dfsdc")
 sprite_frames = SubResource("SpriteFrames_06nf2")
 animation = &"idle 5"
 autoplay = "idle 5"
+
+[node name="Camera2D" type="Camera2D" parent="."]

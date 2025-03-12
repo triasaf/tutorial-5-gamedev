@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://7j0yy0aga87y"]
+
+[ext_resource type="Texture2D" uid="uid://dxfjt674gbt2q" path="res://assets/spritesheet_players.png" id="1_g2op6"]
+[ext_resource type="Script" path="res://scenes/alien.gd" id="1_h8ddb"]
+[ext_resource type="AudioStream" uid="uid://ow7d5k84k1gs" path="res://assets/ufo-landing-93632.wav" id="3_fduaq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rsyr"]
+atlas = ExtResource("1_g2op6")
+region = Rect2(640, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83ms5"]
+atlas = ExtResource("1_g2op6")
+region = Rect2(640, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0t7k"]
+atlas = ExtResource("1_g2op6")
+region = Rect2(640, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8qaa"]
+atlas = ExtResource("1_g2op6")
+region = Rect2(768, 512, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v1ohe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rsyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83ms5")
+}],
+"loop": true,
+"name": &"fly right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0t7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8qaa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wensq"]
+radius = 39.0
+height = 154.0
+
+[node name="Alien" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_h8ddb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -43)
+sprite_frames = SubResource("SpriteFrames_v1ohe")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.318266
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("CapsuleShape2D_wensq")
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fduaq")
+autoplay = true
+
+[connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]
