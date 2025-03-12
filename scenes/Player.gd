@@ -45,11 +45,11 @@ func _physics_process(delta: float) -> void:
 	# Horizontal movement
 	if direction:
 		velocity.x = direction * walk_speed
-		animation.play("walk")
+		animation.play("walk right 5")
 		animation.flip_h = direction < 0
 	else:
 		velocity.x = 0
-		animation.play("idle")
+		animation.play("idle 5")
 
 	# Dashing
 	if Input.is_action_just_pressed("move_dash") and is_on_floor() and not is_dash_on_cooldown:

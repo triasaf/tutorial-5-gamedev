@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4e2oxg7wxcr4"]
+[gd_scene load_steps=14 format=3 uid="uid://4e2oxg7wxcr4"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_uohhe"]
 [ext_resource type="Texture2D" uid="uid://c6ab5usovtwvg" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_jump.png" id="2_dfsdc"]
@@ -7,9 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://bpc6e5ojqehlc" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_stand.png" id="4_w1k01"]
 [ext_resource type="Texture2D" uid="uid://jnt42t5uwigs" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_walk2.png" id="4_wouv4"]
 [ext_resource type="Texture2D" uid="uid://j2wrs40clo4m" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_idle.png" id="5_a2vec"]
+[ext_resource type="Texture2D" uid="uid://psnj1a3pxgrt" path="res://assets/player_tilesheet.png" id="6_mkiyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7orag"]
 size = Vector2(86, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li36e"]
+atlas = ExtResource("6_mkiyf")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6fhq"]
+atlas = ExtResource("6_mkiyf")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqppe"]
+atlas = ExtResource("6_mkiyf")
+region = Rect2(80, 110, 80, 110)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_06nf2"]
 animations = [{
@@ -34,6 +47,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_li36e")
+}],
+"loop": true,
+"name": &"idle 5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_vyf6b")
 }, {
 "duration": 1.0,
@@ -41,6 +62,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6fhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqppe")
+}],
+"loop": true,
+"name": &"walk right 5",
 "speed": 5.0
 }]
 
@@ -57,5 +89,5 @@ texture = ExtResource("2_dfsdc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_06nf2")
-animation = &"walk"
-frame_progress = 0.0749361
+animation = &"idle 5"
+autoplay = "idle 5"
