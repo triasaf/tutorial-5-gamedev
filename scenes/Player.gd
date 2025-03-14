@@ -20,6 +20,8 @@ var is_dash_on_cooldown = false  # Flag to check if dash is on cooldown
 var is_dashing = false
 var is_air_dashing = false
 
+const PUSH_FORCE = 300  # Adjust this value for stronger push from Alien
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass  # Replace with function body.

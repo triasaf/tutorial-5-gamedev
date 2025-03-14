@@ -1,37 +1,53 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsyfep1odrxje"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Ground.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://8vsq7yyoi280" path="res://Scenes/Ground.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://4e2oxg7wxcr4" path="res://scenes/Player.tscn" id="2_stjcx"]
 [ext_resource type="AudioStream" uid="uid://cow6j7rt6wn40" path="res://assets/assets_sound_bgm.wav" id="3_fwrgt"]
 [ext_resource type="PackedScene" uid="uid://7j0yy0aga87y" path="res://scenes/Alien.tscn" id="4_twewr"]
 
 [node name="Root" type="Node2D"]
 
-[node name="Ground" parent="." instance=ExtResource("1")]
-position = Vector2(507.708, 363.86)
-
-[node name="Ground2" parent="." instance=ExtResource("1")]
-position = Vector2(789.149, 294.054)
-
-[node name="Ground3" parent="." instance=ExtResource("1")]
-position = Vector2(157, 385)
-
-[node name="Ground4" parent="." instance=ExtResource("1")]
-position = Vector2(1141, 293)
-
-[node name="Ground5" parent="." instance=ExtResource("1")]
-position = Vector2(1495, 293)
-
-[node name="Ground6" parent="." instance=ExtResource("1")]
-position = Vector2(1842, 299)
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_stjcx")]
-position = Vector2(100, 62)
-metadata/_edit_lock_ = true
+position = Vector2(409, 255)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fwrgt")
 autoplay = true
 
 [node name="Alien" parent="." instance=ExtResource("4_twewr")]
-position = Vector2(1284, 83)
+position = Vector2(824, 78)
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Ground" parent="Ground" instance=ExtResource("1")]
+position = Vector2(507.708, 363.86)
+
+[node name="Ground7" parent="Ground" instance=ExtResource("1")]
+position = Vector2(-192, 362)
+
+[node name="Ground8" parent="Ground" instance=ExtResource("1")]
+position = Vector2(-474, 292)
+
+[node name="Ground9" parent="Ground" instance=ExtResource("1")]
+position = Vector2(-826, 294)
+
+[node name="Ground10" parent="Ground" instance=ExtResource("1")]
+position = Vector2(-1180, 294)
+
+[node name="Ground2" parent="Ground" instance=ExtResource("1")]
+position = Vector2(789.149, 294.054)
+
+[node name="Ground3" parent="Ground" instance=ExtResource("1")]
+position = Vector2(157, 385)
+
+[node name="Ground4" parent="Ground" instance=ExtResource("1")]
+position = Vector2(1141, 293)
+
+[node name="Ground5" parent="Ground" instance=ExtResource("1")]
+position = Vector2(1495, 293)
+
+[node name="Ground6" parent="Ground" instance=ExtResource("1")]
+position = Vector2(1850, 295)
+
+[node name="Ground11" parent="Ground" instance=ExtResource("1")]
+position = Vector2(2204, 295)
