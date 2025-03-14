@@ -1,3 +1,20 @@
+### Tutorial 5 - Assets Creation & Integration - Trias 2106633645
+
+#### Objek Baru: Flying Blue Alien
+- Menggunakan spritesheet dari kenney. Terdapat 2 animasi: Fly dan Idle
+- Secara random bergerak ke kiri, kanan, atau diam
+- Dalam jarak 500px dari Player, akan terdengar audio Alien. Dilakukan dengan cara mengubah max distance di Inspector
+- Audio looping
+
+#### Interaksi dengan Player
+- Dalam script Alien ditambahkan move_and_collide() untuk deteksi collision dengan Player
+- Jika terdeteksi collision, akan stop audio default Alien, dan play audio collision, lalu kembali ke audio default
+- Terkadang collision detection kurang konsisten
+
+#### Background Music
+- Menambahkan background music seperti pada instruksi latihan
+---
+
 ### Tutorial 3 - Movement - Trias 2106633645
 
 #### Movement:
